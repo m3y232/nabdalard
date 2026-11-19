@@ -22,9 +22,9 @@ h1,h2,h3,button,.chip{font-family:Cairo,Tajawal,sans-serif}
 .hero-in{max-width:760px;margin:auto}
 .top{display:flex;justify-content:space-between;align-items:center;color:var(--tx)}
 .top small{font-weight:600;opacity:.8}
-#theme{background:var(--sf);border:1px solid var(--ln);color:var(--tx);border-radius:20px;padding:4px 12px;cursor:pointer}
+#set,#theme{background:var(--sf);border:1px solid var(--ln);color:var(--tx);border-radius:20px;padding:4px 12px;cursor:pointer}
 h1{font-weight:900;font-size:clamp(2.4rem,9vw,4rem);line-height:1.2;margin-top:22px;color:var(--tx)}
-.en{font-weight:600;color:var(--tx);opacity:.75;letter-spacing:.04em;direction:ltr;text-align:right}
+.en{font-weight:600;color:var(--tx);opacity:.75;letter-spacing:.04em}
 .tag{font-size:1.15rem;margin-top:6px;color:var(--tx);font-weight:500}
 .sbox{position:relative;margin-top:26px}
 #q{width:100%;padding:15px 18px;font:600 1.05rem Cairo,sans-serif;border-radius:14px;border:2px solid var(--tx);background:var(--sf);color:var(--tx)}
@@ -34,8 +34,8 @@ h1{font-weight:900;font-size:clamp(2.4rem,9vw,4rem);line-height:1.2;margin-top:2
 #sug button:hover,#sug button:focus{background:var(--bg)}
 main{max-width:1000px;margin:-30px auto 0;padding:0 14px 40px;position:relative}
 .panel{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.chip{border:1px solid var(--ln);background:var(--bg);color:var(--tx);padding:5px 12px;border-radius:20px;font-size:.88rem;cursor:pointer;font-weight:600}
+.chips{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:2px 2px 10px;scrollbar-width:thin}
+.chip{flex:none;white-space:nowrap;scroll-snap-align:start;border:1px solid var(--ln);background:var(--bg);color:var(--tx);padding:8px 15px;border-radius:22px;font-size:.9rem;cursor:pointer;font-weight:600}
 .chip[aria-pressed="true"]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
 .ex{font-size:.85rem;color:var(--mu);margin-top:10px}
 .ex button{background:none;border:0;border-bottom:1px dashed var(--bl);color:var(--bl);cursor:pointer;font:inherit;margin:0 4px 0 0}
@@ -45,11 +45,11 @@ main{max-width:1000px;margin:-30px auto 0;padding:0 14px 40px;position:relative}
 .dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
 @keyframes b{50%{transform:translateY(-6px)}}
 .meta{display:flex;justify-content:space-between;color:var(--mu);font-size:.88rem;margin:18px 2px 8px}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-.card{background:var(--sf);border:1px solid var(--ln);border-inline-start:5px solid var(--cc);border-radius:10px;padding:14px;cursor:pointer}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--sf);border:1px solid var(--ln);border-top:4px solid var(--cc);border-radius:16px;padding:16px;cursor:pointer}
 .card:focus-visible{outline:3px solid var(--bl)}
-.card .c{font-size:.8rem;color:var(--mu);font-weight:600}
-.card h3{font-size:1.08rem;margin:2px 0 6px;line-height:1.5}
+.card .c{display:flex;align-items:center;font-size:.8rem;color:var(--mu);font-weight:600}.ib{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;margin-inline-end:8px;font-size:1.05rem}
+.card h3{font-size:1.12rem;margin:12px 0 6px;line-height:1.5}
 .card p{font-size:.93rem;color:var(--mu)}
 .more{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--ln);font-size:.93rem}
 .more b{color:var(--ac)}
@@ -61,29 +61,44 @@ main{max-width:1000px;margin:-30px auto 0;padding:0 14px 40px;position:relative}
 footer{text-align:center;color:var(--mu);font-size:.82rem;padding:0 16px 28px}
 @media (prefers-reduced-motion:reduce){.dots span{animation:none}}
 </style>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="نبض الأرض">
+<meta name="description" content="نبض الأرض: موسوعة عربية لقراءة علامات الطبيعة، من الصخور والسحب والسيول إلى الفلك والنبات والحيوان، مع بحث ذكي وتفسير علمي.">
+<meta name="keywords" content="علامات الطبيعة, السحب, السيول, الصخور, الجيولوجيا, الفلك, الأرصاد, نبض الأرض">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nabdalard.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nabdalard.pages.dev/">
+<meta property="og:image" content="https://nabdalard.pages.dev/icon-512.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"نبض الأرض","alternateName":"Earth Pulse","url":"https://nabdalard.pages.dev/","inLanguage":"ar","description":"موسوعة عربية لقراءة علامات الطبيعة وتفسيرها علمياً"}</script>
 </head>
 <body>
 <header class="hero"><div class="hero-in">
-<div class="top"><small id="stat"></small><button id="theme" aria-label="تبديل المظهر">◐ المظهر</button></div>
-<h1><svg viewBox="50 55 100 100" role="img" aria-label="شعار نبض الأرض" style="width:.85em;height:.85em;vertical-align:-.05em;margin-inline-start:.15em"><path d="M55 100 L78 100 L92 62 L108 118 L122 80 L130 100 L145 100" fill="none" stroke="#2B7A8C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="55" y="124" width="90" height="7" rx="3" fill="#E3CFA0"/><rect x="55" y="135" width="90" height="7" rx="3" fill="#C28A1E"/><rect x="55" y="146" width="90" height="7" rx="3" fill="#5a3b25"/></svg>نبض الأرض</h1>
-<div class="en">Earth Pulse</div>
-<p class="tag">اقرأ الأرض.. واكتشف لغة الكون</p>
+<div class="top"><small id="stat"></small><span><button id="set" aria-label="Settings">⚙</button> <button id="theme" aria-label="Theme">◐ المظهر</button></span></div>
+<h1><svg viewBox="50 55 100 100" role="img" aria-label="شعار نبض الأرض" style="width:.85em;height:.85em;vertical-align:-.05em;margin-inline-start:.15em"><path d="M55 100 L78 100 L92 62 L108 118 L122 80 L130 100 L145 100" fill="none" stroke="#2B7A8C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="55" y="124" width="90" height="7" rx="3" fill="#E3CFA0"/><rect x="55" y="135" width="90" height="7" rx="3" fill="#C28A1E"/><rect x="55" y="146" width="90" height="7" rx="3" fill="#5a3b25"/></svg><span id="nm">نبض الأرض</span></h1>
+<div class="en" id="alt">Earth Pulse</div>
+<p class="tag" id="tag">اقرأ الأرض.. واكتشف لغة الكون</p>
 <div class="sbox">
 <input id="q" type="search" autocomplete="off" placeholder="اسأل الطبيعة: علامات قرب السيل؟" aria-label="بحث ذكي">
 <div id="sug" role="listbox"></div>
 </div></div></header>
 <main>
+<div id="sp" class="panel" style="display:none;margin-bottom:14px"><h2 id="sph" style="font-size:1.05rem">الإعدادات</h2><div class="chips" id="langs" style="margin-top:8px"></div></div>
 <div class="panel">
 <div class="chips" id="cats" role="group" aria-label="التصنيفات"></div>
-<div class="ex">جرّب: <span id="exs"></span></div>
+<div class="ex"><span id="trl">جرّب:</span> <span id="exs"></span></div>
 </div>
 <section id="ai" class="panel" aria-live="polite"></section>
 <div class="meta"><span id="cnt"></span><span id="mode"></span></div>
 <div class="grid" id="grid"></div>
+<div style="text-align:center;margin-top:16px"><button id="more" class="chip" style="display:none;padding:10px 28px;font-size:1rem">عرض المزيد</button></div>
 </main>
-<footer><svg viewBox="50 55 100 100" aria-hidden="true" style="width:34px;height:34px"><path d="M55 100 L78 100 L92 62 L108 118 L122 80 L130 100 L145 100" fill="none" stroke="#2B7A8C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="55" y="124" width="90" height="7" rx="3" fill="#D9B86C"/><rect x="55" y="135" width="90" height="7" rx="3" fill="#C28A1E"/><rect x="55" y="146" width="90" height="7" rx="3" fill="#5a3b25"/></svg><br><b>نبض الأرض</b><br>المحتوى تعليمي. لا تعتمد على علامات الطبيعة وحدها في قرارات السلامة، وتابع تحذيرات الجهات الرسمية.</footer>
+<footer><svg viewBox="50 55 100 100" aria-hidden="true" style="width:34px;height:34px"><path d="M55 100 L78 100 L92 62 L108 118 L122 80 L130 100 L145 100" fill="none" stroke="#2B7A8C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><rect x="55" y="124" width="90" height="7" rx="3" fill="#D9B86C"/><rect x="55" y="135" width="90" height="7" rx="3" fill="#C28A1E"/><rect x="55" y="146" width="90" height="7" rx="3" fill="#5a3b25"/></svg><br><b class="nm2">نبض الأرض</b><br><span id="ft">المحتوى تعليمي. لا تعتمد على علامات الطبيعة وحدها في قرارات السلامة، وتابع تحذيرات الجهات الرسمية.</span></footer>
 <script>
-const CATS=[{id:'geo',n:'الصخور والتربة والجيولوجيا',i:'⛰️',c:'#a98a64'},{id:'sky',n:'السحب والطقس',i:'☁️',c:'#6b8fb5'},{id:'wat',n:'المياه والبحار والسيول',i:'🌊',c:'#2b7a8c'},{id:'ast',n:'الفلك والسماء',i:'🌙',c:'#7a6bb5'},{id:'plt',n:'النباتات والأشجار',i:'🌿',c:'#5b9a4a'},{id:'ani',n:'الحيوان والطيور',i:'🐦',c:'#c0762f'}];
+const CATS=[{id:'geo',n:'الصخور والتربة والجيولوجيا',i:'⛰️',c:'#a98a64'},{id:'sky',n:'السحب والطقس',i:'☁️',c:'#6b8fb5'},{id:'wat',n:'المياه والبحار والسيول',i:'🌊',c:'#2b7a8c'},{id:'ast',n:'الفلك والسماء',i:'🌙',c:'#7a6bb5'},{id:'plt',n:'النباتات والأشجار',i:'🌿',c:'#5b9a4a'},{id:'ani',n:'الحيوان والطيور',i:'🐦',c:'#c0762f'},{id:'vol',n:'البراكين والزلازل',i:'🌋',c:'#c0502f'},{id:'win',n:'المناخ والرياح',i:'🌬️',c:'#4a8fa8'},{id:'des',n:'الصحارى والكثبان',i:'🏜️',c:'#c9a24a'},{id:'mar',n:'المحيطات والأحياء البحرية',i:'🐠',c:'#1f6f9a'},{id:'ice',n:'الثلوج والجليد',i:'❄️',c:'#7fb4cc'},{id:'eco',n:'الغابات والنظم البيئية',i:'🌲',c:'#3f7f4a'},{id:'min',n:'المعادن والموارد',i:'💎',c:'#8a6bb5'},{id:'ins',n:'الحشرات والأحياء الدقيقة',i:'🐞',c:'#b5894a'}];
 // r: موثوقية علمية 1-3 | الحقول قابلة للتحميل من ملف JSON خارجي عبر loadEntries()
 const RAW=[
 {c:'geo',t:'تشققات صخرية متوازية (الفواصل)',k:'صخور شقوق تشقق فواصل تكتونية ضغط تصدع',s:'شقوق عمودية متوازية تقطع الصخر على مسافات منتظمة.',m:'تدل على إجهاد تكتوني أو تمدد وانكماش حراري. وهي مسارات لتسرب المياه الجوفية وتؤثر في ثبات المنحدرات.',x:'تنشأ الفواصل (Joints) عند تجاوز إجهاد الشد مقاومة الصخر دون إزاحة ملحوظة، بخلاف الصدوع.',r:3},
@@ -112,39 +127,54 @@ const RAW=[
 {c:'ani',t:'نمل يهاجر بيضه إلى مكان مرتفع',k:'نمل عش بيض مطر رطوبة فيضان هجرة ارتفاع',s:'قوافل نمل تنقل البيض أو تبني أعشاشاً مرتفعة.',m:'استجابة لزيادة الرطوبة وتغير الضغط، وقد تسبق أمطاراً غزيرة محلياً.',x:'النمل حساس للرطوبة. الدلالة محلية وغير دقيقة بالتوقيت.',r:1}
 ];
 const SYN={سيل:['وادي','فيضان','مطر','رعد'],سيول:['سيل','وادي'],غيم:['سحب'],سحاب:['سحب'],ريح:['رياح'],زلزال:['هزه','تكتون','تسونامي'],عاصفه:['رعد','ركاميه','برق'],مطر:['سحب','امطار','رطوبه'],ماء:['مياه','بئر','نبع'],بحر:['ساحل','موج'],تربه:['ارض','صخور'],طير:['طيور'],شفق:['شمس'],برد:['شتاء','جليد']};
-const STOP=new Set('ماذا تعني تعنيه علامات علامه ما هو هي من في علي عن ذات لون قرب هل كيف متي الي او مع ذو بعض كل'.split(' '));
+const STOP=new Set('of an the in to is and for what does mean ماذا تعني تعنيه علامات علامه ما هو هي من في علي عن ذات لون قرب هل كيف متي الي او مع ذو بعض كل'.split(' '));
 const norm=s=>s.replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[؟?!.,،:؛]/g,' ').toLowerCase();
 const toks=q=>norm(q).split(/\s+/).map(w=>w.replace(/^(وال|بال|لل|ال)(?=.{2,})/,'')).filter(w=>w.length>1&&!STOP.has(w));
+const ENT=['Parallel rock fractures (joints)','Successive sedimentary layers','Red soil','Marine fossils in mountains','Dark gray cumulonimbus clouds','Thin high cirrus clouds','Halo around the moon or sun','Lenticular clouds near mountains','Signs of an approaching flash flood','Changing sea color (red tide)','Sudden sea retreat','Sudden rise of well or spring water','Blood moon (total lunar eclipse)','Intense star twinkling','Meteor showers','Aurora at low latitudes','Sudden wilting and yellowing leaves','Salt-tolerant plants such as tamarisk','Reeds and papyrus growth','Trees leaning in one direction','Early bird migration','Swallows flying low','Strange animal behavior before earthquakes','Ants moving eggs to higher ground','Frequent small tremors near a volcano','Sulfur gases and changing hot springs','Hot dry Khamsin winds and yellow dust','Sudden wind shift and temperature drop','Crescent dunes (barchans)','White salt crust on the ground','Mass fish deaths near the shore','Coral bleaching','Cracking sounds and new fissures in lake ice','Abandoned glacial moraine','Lichens disappearing from trees and rocks','Pioneer plants after a fire','Iron cap over an ore body','Orange water near a mine','Locust swarms appearing','Flashing fireflies at night'];
+const LANG={ar:{name:'نبض الأرض',alt:'Earth Pulse',tag:'اقرأ الأرض.. واكتشف لغة الكون',ph:'اسأل الطبيعة: علامات قرب السيل؟',try:'جرّب:',all:'الكل',res:'نتيجة',modeQ:'مرتبة حسب درجة التطابق',modeAll:'كل الإشارات',none:'لا توجد نتائج مطابقة. جرّب كلمات أبسط مثل: سحب، صخور، رياح، سيل.',ai:'التحليل الذكي',aiYes1:'أقرب تفسير لسؤالك',aiYes2:'هو',conf:'بثقة',aiNo:'لم أجد إشارة مطابقة لسؤالك',more:'عرض المزيد',foot:'المحتوى تعليمي. لا تعتمد على علامات الطبيعة وحدها في قرارات السلامة، وتابع تحذيرات الجهات الرسمية.',theme:'◐ المظهر',settings:'الإعدادات',stat:' إشارة مفهرسة • جاهز لأكثر من 5000',mean:'الدلالة',sci:'التفسير العلمي',match:'تطابق',rl:['','موثوقية علمية منخفضة','موثوقية علمية متوسطة','موثوقية علمية عالية'],ex:['علامات قرب السيل؟','ماذا تعني السحب ذات اللون الرمادي الداكن؟','رياح','صخور'],cn:Object.fromEntries(CATS.map(c=>[c.id,c.n]))},en:{name:'Earth Pulse',alt:'نبض الأرض',tag:'Read the Earth. Decode the language of the universe.',ph:'Ask nature: signs of a flash flood?',try:'Try:',all:'All',res:'results',modeQ:'Ranked by match score',modeAll:'All signals',none:'No matching results. Try simpler words such as clouds, wind, flood, volcano.',ai:'Smart analysis',aiYes1:'Closest match for your question',aiYes2:'is',conf:'confidence',aiNo:'No matching signal found for your question',more:'Show more',foot:'Educational content. Do not rely on natural signs alone for safety decisions; follow official warnings.',theme:'◐ Theme',settings:'Settings',stat:' signals indexed • ready for 5,000+',mean:'Meaning',sci:'Science',match:'Match',rl:['','Low scientific reliability','Medium scientific reliability','High scientific reliability'],ex:['flash flood','dark clouds','wind','volcano'],cn:{geo:'Rocks, soil & geology',sky:'Clouds & weather',wat:'Water, seas & floods',ast:'Astronomy & sky',plt:'Plants & trees',ani:'Animals & birds',vol:'Volcanoes & earthquakes',win:'Climate & winds',des:'Deserts & dunes',mar:'Oceans & marine life',ice:'Snow & ice',eco:'Forests & ecosystems',min:'Minerals & resources',ins:'Insects & microbes'}}};
+let lg='ar';try{lg=localStorage.getItem('lg')||'ar'}catch(x){}
+const L=k=>LANG[lg][k];
+const g=(e,f)=>(lg!='ar'&&e[f+'_en'])||e[f];
+function buildCats(){$('cats').innerHTML=`<button class="chip" aria-pressed="${cat===''}" data-c="">${L('all')}</button>`+CATS.map(c=>`<button class="chip" aria-pressed="${cat===c.id}" data-c="${c.id}">${c.i} ${L('cn')[c.id]}</button>`).join('')}
+function buildEx(){$('exs').innerHTML=L('ex').map(x=>`<button type="button">${x}</button>`).join('')}
+function buildLangs(){$('langs').innerHTML=['ar','en'].map(k=>`<button class="chip" data-l="${k}" aria-pressed="${lg==k}">${k=='ar'?'العربية':'English'}</button>`).join('')}
+function applyLang(){const d=document.documentElement;d.lang=lg;d.dir=lg=='ar'?'rtl':'ltr';$('nm').textContent=L('name');document.querySelector('.nm2').textContent=L('name');$('alt').textContent=L('alt');$('tag').textContent=L('tag');$('q').placeholder=L('ph');$('trl').textContent=L('try');$('ft').textContent=L('foot');$('theme').textContent=L('theme');$('more').textContent=L('more');$('sph').textContent=L('settings');document.title=L('name')+' | '+L('alt');buildCats();buildEx();buildLangs();stat();render()}
 let DB=[];
-function loadEntries(a){a.forEach(e=>{e.id=DB.length;e.nt=norm(e.t);e.nk=norm(e.k);e.ns=norm(e.s);e.nm=norm(e.m);e.nx=norm(e.x);DB.push(e)});stat()}
+function loadEntries(a){a.forEach(e=>{e.id=DB.length;e.t_en=e.t_en||ENT[e.id]||'';e.nte=norm(e.t_en);e.nt=norm(e.t);e.nk=norm(e.k);e.ns=norm(e.s);e.nm=norm(e.m);e.nx=norm(e.x);DB.push(e)});stat()}
 function search(q,cat){const T=toks(q);if(!T.length)return[];const ex=new Set(T);T.forEach(t=>(SYN[t]||[]).forEach(x=>ex.add(x)));
-return DB.filter(e=>!cat||e.c===cat).map(e=>{let sc=0;ex.forEach(t=>{const w=T.includes(t)?1:.55;if(e.nt.includes(t))sc+=5*w;if(e.nk.includes(t))sc+=4*w;if(e.ns.includes(t))sc+=2*w;if(e.nm.includes(t))sc+=1.5*w;if(e.nx.includes(t))sc+=w});
+return DB.filter(e=>!cat||e.c===cat).map(e=>{let sc=0;ex.forEach(t=>{const w=T.includes(t)?1:.55;if(e.nt.includes(t)||e.nte.includes(t))sc+=5*w;if(e.nk.includes(t))sc+=4*w;if(e.ns.includes(t))sc+=2*w;if(e.nm.includes(t))sc+=1.5*w;if(e.nx.includes(t))sc+=w});
 return{e,conf:Math.min(98,Math.round(sc/(T.length*8)*100))}}).filter(o=>o.conf>0).sort((a,b)=>b.conf-a.conf)}
-const $=id=>document.getElementById(id);let cat='',timer;
+const $=id=>document.getElementById(id);let cat='',timer,lim=30;
 const cinfo=id=>CATS.find(c=>c.id===id);
 const stars=r=>'●'.repeat(r)+'○'.repeat(3-r);
-const rl=['','موثوقية علمية منخفضة','موثوقية علمية متوسطة','موثوقية علمية عالية'];
-function stat(){$('stat').textContent=DB.length+' إشارة مفهرسة • جاهز لأكثر من 5000'}
-function card(o){const e=o.e||o,ci=cinfo(e.c);return `<article class="card" tabindex="0" style="--cc:${ci.c}" data-id="${e.id}"><div class="c">${ci.i} ${ci.n}</div><h3>${e.t}</h3><p>${e.s}</p><div class="row">${o.conf?`<span class="cf">تطابق ${o.conf}%</span>`:''}<span class="rel" title="${rl[e.r]}">${stars(e.r)} ${rl[e.r]}</span></div><div class="more"><p><b>الدلالة:</b> ${e.m}</p><p style="margin-top:6px"><b>التفسير العلمي:</b> ${e.x}</p></div></article>`}
+
+function stat(){$('stat').textContent=DB.length+L('stat')}
+function card(o){const e=o.e||o,ci=cinfo(e.c);return `<article class="card" tabindex="0" style="--cc:${ci.c}" data-id="${e.id}"><div class="c"><span class="ib" style="background:${ci.c}33">${ci.i}</span>${L('cn')[ci.id]}</div><h3>${g(e,'t')}</h3><p>${g(e,'s')}</p><div class="row">${o.conf?`<span class="cf">${L('match')} ${o.conf}%</span>`:''}<span class="rel" title="${L('rl')[e.r]}">${stars(e.r)} ${L('rl')[e.r]}</span></div><div class="more"><p><b>${L('mean')}:</b> ${g(e,'m')}</p><p style="margin-top:6px"><b>${L('sci')}:</b> ${g(e,'x')}</p>${lg=='en'&&!e.m_en?'<p style="color:var(--mu);font-size:.8rem;margin-top:6px">English text for this entry is coming soon; shown in Arabic.</p>':''}</div></article>`}
 function render(){const q=$('q').value.trim();let list,ai=$('ai');
-if(q){list=search(q,cat);$('mode').textContent='مرتبة حسب درجة التطابق'}else{list=DB.filter(e=>!cat||e.c===cat);$('mode').textContent='كل الإشارات'}
-$('cnt').textContent=list.length+' نتيجة';
-$('grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty" style="grid-column:1/-1">لا توجد نتائج مطابقة. جرّب كلمات أبسط مثل: سحب، صخور، رياح، سيل.</div>';
-if(q){ai.style.display='block';ai.innerHTML='<h2>التحليل الذكي <span class="dots"><span></span><span></span><span></span></span></h2>';clearTimeout(timer);
-timer=setTimeout(()=>{const t=list[0];ai.innerHTML=t?`<h2>التحليل الذكي</h2><p>أقرب تفسير لسؤالك «<span id="qq"></span>» هو <b>${t.e.t}</b> بثقة ${t.conf}%.</p><p style="color:var(--mu)">${t.e.m}</p>`:`<h2>التحليل الذكي</h2><p>لم أجد إشارة مطابقة لسؤالك «<span id="qq"></span>».</p>`;const s=$('qq');if(s)s.textContent=q},450)}else ai.style.display='none'}
+if(q){list=search(q,cat);$('mode').textContent=L('modeQ')}else{list=DB.filter(e=>!cat||e.c===cat);$('mode').textContent=L('modeAll')}
+$('cnt').textContent=list.length+' '+L('res');$('more').style.display=list.length>lim?'inline-block':'none';
+$('grid').innerHTML=list.length?list.slice(0,lim).map(card).join(''):'<div class="empty" style="grid-column:1/-1">'+L('none')+'</div>';
+if(q){ai.style.display='block';ai.innerHTML='<h2>'+L('ai')+' <span class="dots"><span></span><span></span><span></span></span></h2>';clearTimeout(timer);
+timer=setTimeout(()=>{const t=list[0];ai.innerHTML=t?`<h2>${L('ai')}</h2><p>${L('aiYes1')} «<span id="qq"></span>» ${L('aiYes2')} <b>${g(t.e,'t')}</b> ${L('conf')} ${t.conf}%.</p><p style="color:var(--mu)">${g(t.e,'m')}</p>`:`<h2>${L('ai')}</h2><p>${L('aiNo')} «<span id="qq"></span>».</p>`;const s=$('qq');if(s)s.textContent=q},450)}else ai.style.display='none'}
 function sug(){const q=$('q').value.trim(),b=$('sug');if(q.length<2){b.style.display='none';return}
-const r=search(q).slice(0,5);b.innerHTML=r.map(o=>`<button type="button" role="option">${o.e.t}</button>`).join('');b.style.display=r.length?'block':'none'}
+const r=search(q).slice(0,5);b.innerHTML=r.map(o=>`<button type="button" role="option">${g(o.e,'t')}</button>`).join('');b.style.display=r.length?'block':'none'}
 $('sug').onclick=e=>{if(e.target.tagName=='BUTTON'){$('q').value=e.target.textContent;$('sug').style.display='none';render()}};
-$('q').oninput=()=>{sug();render()};
+$('q').oninput=()=>{lim=30;sug();render()};
+$('more').onclick=()=>{lim+=30;render()};
+$('set').onclick=()=>{const p=$('sp');p.style.display=p.style.display=='none'?'block':'none'};
+$('langs').onclick=e=>{const b=e.target.closest('[data-l]');if(b){lg=b.dataset.l;lim=30;try{localStorage.setItem('lg',lg)}catch(x){}applyLang()}};
 $('grid').onclick=e=>{const c=e.target.closest('.card');if(c)c.classList.toggle('open')};
 $('grid').onkeydown=e=>{if(e.key=='Enter'||e.key==' '){const c=e.target.closest('.card');if(c){e.preventDefault();c.classList.toggle('open')}}};
 document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))$('sug').style.display='none'});
-$('cats').innerHTML='<button class="chip" aria-pressed="true" data-c="">الكل</button>'+CATS.map(c=>`<button class="chip" aria-pressed="false" data-c="${c.id}">${c.i} ${c.n}</button>`).join('');
-$('cats').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
-$('exs').innerHTML=['علامات قرب السيل؟','ماذا تعني السحب ذات اللون الرمادي الداكن؟','رياح','صخور'].map(x=>`<button type="button">${x}</button>`).join('');
+
+$('cats').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;lim=30;document.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));render()};
+
 $('exs').onclick=e=>{if(e.target.tagName=='BUTTON'){$('q').value=e.target.textContent;render();$('ai').scrollIntoView({behavior:'smooth',block:'center'})}};
 $('theme').onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
-loadEntries(RAW);render();
+loadEntries(RAW);loadEntries([{"c": "vol", "t": "هزات صغيرة متكررة قرب بركان", "k": "بركان هزات زلزال صهارة نشاط ثوران مرصد", "s": "هزات خفيفة متتابعة في منطقة بركانية.", "m": "حركة صهارة أو غازات تحت السطح، وقد تسبق ثوراناً. تتابعها المراصد البركانية، فالتزم بتحذيرات الجهات الرسمية.", "x": "تنتج الهزات البركانية من تشقق الصخور بضغط الصهارة والسوائل الساخنة.", "r": 3}, {"c": "vol", "t": "غازات كبريتية وينابيع ساخنة متغيرة", "k": "بركان غاز كبريت رائحة بيض فاسد ينابيع حارة ثاني اكسيد الكربون اختناق", "s": "رائحة كبريت وتغير لون أو حرارة الينابيع قرب بركان.", "m": "زيادة في الغازات البركانية أو الحرارة الجوفية. ثاني أكسيد الكربون أثقل من الهواء ويتجمع في المنخفضات ويسبب الاختناق.", "x": "تتغير كيمياء الينابيع مع صعود الغازات والسوائل من الصهارة الضحلة.", "r": 3}, {"c": "win", "t": "رياح السموم والغبار الأصفر", "k": "رياح سموم خماسين غبار حارة جنوبية جافة منخفض جوي رؤية", "s": "رياح حارة جافة تحمل غباراً أصفر وترفع الحرارة فجأة.", "m": "تهب غالباً أمام منخفض جوي متحرك. تقل الرؤية ويشتد الجفاف، فتجنب القيادة والجهد في الخارج.", "x": "سببها اندفاع هواء صحراوي حار من الجنوب مع حركة المنخفضات في الربيع.", "r": 3}, {"c": "win", "t": "تحول الريح وانخفاض الحرارة المفاجئ", "k": "رياح جبهة باردة انخفاض حرارة تغير اتجاه ضغط صفاء", "s": "تغير اتجاه الريح وهبوط الحرارة وارتفاع الضغط.", "m": "مرور جبهة باردة، يتبعه غالباً صفاء وهواء أبرد، وقد يسبقه مطر أو رعد.", "x": "يندفع الهواء البارد تحت الدافئ فيرفعه، ويتغير اتجاه الريح عند الجبهة.", "r": 3}, {"c": "des", "t": "كثبان هلالية (برخان)", "k": "كثبان رمال برخان هلالية رياح صحراء اتجاه", "s": "كثبان بشكل هلال تنفتح من جهة وتنتهي بقرنين.", "m": "القرنان يشيران إلى اتجاه هبوب الرياح السائدة، وتنتقل الكثبان ببطء مع الزمن.", "x": "تتحرك الرمال من الجانب المواجه للريح إلى الجانب الهابط فتهاجر الكثيبة.", "r": 3}, {"c": "des", "t": "قشرة ملح بيضاء على سطح الأرض", "k": "سبخة ملح قشرة بيضاء تبخر ملوحة جوفي مركبات", "s": "طبقة بيضاء صلبة فوق أرض رطبة أو منخفضة.", "m": "تبخر ماء جوفي مالح. الأرض تحتها قد تكون رخوة وخطرة على المركبات.", "x": "يصعد الماء بالخاصية الشعرية ويتبخر فيترك الأملاح.", "r": 3}, {"c": "mar", "t": "نفوق جماعي للأسماك قرب الشاطئ", "k": "اسماك نفوق شاطئ نقص اكسجين طحالب تلوث ركود", "s": "أسماك تطفو أو تقفز بأعداد كبيرة قرب الساحل.", "m": "غالباً نقص الأكسجين أو ازدهار طحالب أو تلوث. تجنب الصيد والسباحة وأبلغ الجهات المختصة.", "x": "تستهلك الطحالب المتحللة الأكسجين فتختنق الأسماك.", "r": 2}, {"c": "mar", "t": "ابيضاض الشعاب المرجانية", "k": "مرجان شعاب ابيضاض حرارة بحر طحالب بيئة", "s": "شعاب مرجانية بيضاء بعد أن كانت ملونة.", "m": "ارتفاع حرارة الماء، ويمكن أن تتعافى الشعاب إن زال الإجهاد سريعاً.", "x": "تطرد المرجانيات الطحالب التكافلية الملونة تحت الإجهاد الحراري.", "r": 3}, {"c": "ice", "t": "طقطقة وشقوق جديدة في جليد البحيرة", "k": "جليد بحيرة نهر شقوق صوت طقطقة تكسر سقوط خطر", "s": "أصوات تكسر وشقوق متفرعة في سطح الجليد.", "m": "الجليد تحت إجهاد وقد لا يتحمل الوزن. ابتعد بهدوء واتبع إرشادات السلامة المحلية.", "x": "يتغير سمك الجليد وقوته مع الحرارة والتيارات، فلا يكفي لونه للحكم.", "r": 2}, {"c": "ice", "t": "ركام جليدي مهجور (مورين)", "k": "نهر جليدي مورين ركام جليد تراجع احترار صخور", "s": "تلال طويلة من الحصى والصخور بعيدة عن حافة الجليد الحالية.", "m": "تدل على أن النهر الجليدي كان ممتداً أبعد، وتسجل تراجعه عبر الزمن.", "x": "يترك الجليد الركامات عند حافاته وجبهته أثناء تحركه وانصهاره.", "r": 3}, {"c": "eco", "t": "اختفاء الأشنات من الأشجار والصخور", "k": "اشنات تلوث هواء كبريت مدينة مؤشر حيوي طحالب فطريات", "s": "أشجار وأحجار خالية من الأشنات في منطقة حضرية أو صناعية.", "m": "قد يعكس تلوثاً في الهواء، خاصة ثاني أكسيد الكبريت، فالأشنات حساسة له.", "x": "الأشنات تمتص الماء والغازات مباشرة من الجو فتتأثر بالملوثات.", "r": 3}, {"c": "eco", "t": "أعشاب رائدة بعد الحريق", "k": "حريق غابة نبات اعشاب تعاقب بيئي رماد تجدد", "s": "نبات أخضر سريع النمو يغطي أرضاً محروقة.", "m": "بداية تجدد النظام البيئي، وتتبعه شجيرات ثم أشجار على مدى سنوات.", "x": "تسمى الأنواع الرائدة، وتستفيد من الرماد الغني بالمغذيات وزوال المنافسة.", "r": 3}, {"c": "min", "t": "قبعة حديدية فوق خام معدني", "k": "صدا احمر اصفر صخر حديد خام تعدين جوسان اكسدة كبريتيدات", "s": "طبقة صدئة حمراء أو صفراء مسامية على سطح صخرة.", "m": "قد تكون أثراً لتجوية خامات كبريتيدية تحتها، ويستخدمها الجيولوجيون دليلاً أولياً للتنقيب.", "x": "تتأكسد المعادن الكبريتية فتتكون أكاسيد وهيدروكسيدات الحديد على السطح.", "r": 3}, {"c": "min", "t": "ماء برتقالي قرب منجم", "k": "منجم ماء برتقالي حمضي تصريف تلوث مجرى سام", "s": "مجرى ماء برتقالي أو أحمر قرب منجم مهجور.", "m": "قد يكون تصريفاً حمضياً منجمياً سام للأسماك وغير صالح للشرب.", "x": "تتأكسد الكبريتيدات مع الهواء والماء فتنتج حمض الكبريتيك وحديداً مذاباً.", "r": 3}, {"c": "ins", "t": "ظهور أسراب الجراد", "k": "جراد اسراب مطر خضرة جفاف زراعة تكاثر", "s": "أعداد كبيرة من الجراد الصغير تتجمع في الحقول.", "m": "تنبيه زراعي مبكر. أبلغ جهات الوقاية النباتية فوراً قبل تحول الحشرات إلى أسراب طائرة.", "x": "الأمطار بعد الجفاف تدعم الخضرة والتكاثر، فتتحول الأفراد المنفردة إلى حالة التجمع.", "r": 3}, {"c": "ins", "t": "وميض اليراعات في الليل", "k": "يراعات حشرات ليل ضوء رطوبة بيئة نظيفة تلوث ضوئي", "s": "وميض متقطع لحشرات صغيرة في ليالي دافئة رطبة.", "m": "يشير إلى موطن رطب قليل الإضاءة الاصطناعية. الدلالة البيئية عامة وليست قياساً دقيقاً.", "x": "تنتج الإضاءة الحيوية بتفاعل اللوسيفرين، وتستخدم في التزاوج.", "r": 2}]);render();
+applyLang();
+fetch('data/index.json').then(r=>r.ok?r.json():[]).then(fs=>Promise.all(fs.map(f=>fetch('data/'+f).then(r=>r.json())))).then(a=>{a.forEach(loadEntries);render()}).catch(()=>{});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
